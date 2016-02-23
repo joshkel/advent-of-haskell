@@ -6,4 +6,5 @@ wrapping_paper_area s =
     in 3*a*b + 2*a*c + 2*b*c
 
 main = do
-    putStrLn (show (wrapping_paper_area "2x3x4"))
+    contents <- getContents
+    print (sum(map wrapping_paper_area (lines contents)))
