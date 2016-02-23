@@ -15,5 +15,6 @@ ribbon_length (a,b,c) = 2*a + 2*b + a*b*c
 
 main = do
     contents <- getContents
-    putStrLn ("Wrapping paper: " ++ show (sum(map (wrapping_paper_area . box_dimensions) (lines contents))))
-    putStrLn ("Ribbon:         " ++ show (sum(map (ribbon_length . box_dimensions) (lines contents))))
+    let dimensions = map box_dimensions (lines contents)
+    putStrLn ("Wrapping paper: " ++ show (sum(map wrapping_paper_area dimensions)))
+    putStrLn ("Ribbon:         " ++ show (sum(map ribbon_length dimensions)))
