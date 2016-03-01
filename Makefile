@@ -1,4 +1,4 @@
-all: day01 day02
+all: day01 day02 day03
 
 %: %.hs
 	ghc $^
