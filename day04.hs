@@ -9,10 +9,10 @@ key = "bgvyzdsv"
 
 advent_hash n = digestToHexByteString $ md5 (C8.pack (key ++ show n))
 
-advent_coins prefix = [ i | i <- [1..], Data.ByteString.take 5 (advent_hash i) == prefix ]
-
 zeroes n = C8.pack $ replicate n '0'
 
+advent_coins prefix = [ i | i <- [1..], Data.ByteString.take prefix (advent_hash i) == zeroes prefix ]
+
 main = do
-    putStrLn ("Five leading zeroes " ++ show (head $ advent_coins (zeroes 5)))
-    putStrLn ("Six leading zeroes " ++ show (head $ advent_coins (zeroes 6)))
+    putStrLn ("Five leading zeroes " ++ show (head $ advent_coins 5))
+    putStrLn ("Six leading zeroes " ++ show (head $ advent_coins 6))
